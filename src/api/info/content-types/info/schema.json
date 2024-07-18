@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "news",
+  "collectionName": "infos",
   "info": {
-    "singularName": "new",
-    "pluralName": "news",
-    "displayName": "News",
+    "singularName": "info",
+    "pluralName": "infos",
+    "displayName": "Info",
     "description": ""
   },
   "options": {
@@ -22,7 +22,16 @@
           "localized": true
         }
       },
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext"
     },
     "published": {
       "pluginOptions": {
@@ -30,7 +39,8 @@
           "localized": true
         }
       },
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "updated": {
       "pluginOptions": {
@@ -38,11 +48,12 @@
           "localized": true
         }
       },
-      "type": "date"
+      "type": "date",
+      "required": true
     },
-    "images": {
+    "image": {
       "type": "media",
-      "multiple": true,
+      "multiple": false,
       "required": false,
       "allowedTypes": [
         "images"
@@ -53,13 +64,18 @@
         }
       }
     },
-    "description": {
+    "files": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      },
-      "type": "richtext"
+      }
     }
   }
 }
