@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "members",
+  "collectionName": "news",
   "info": {
-    "singularName": "member",
-    "pluralName": "members",
-    "displayName": "Member",
-    "description": ""
+    "singularName": "new",
+    "pluralName": "news",
+    "displayName": "News"
   },
   "options": {
     "draftAndPublish": true
@@ -16,41 +15,47 @@
     }
   },
   "attributes": {
-    "name": {
-      "type": "string",
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "required": true
+      "type": "string"
     },
-    "role": {
-      "type": "string",
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "blocks"
     },
-    "position": {
-      "type": "string",
+    "published": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "datetime"
     },
-    "profilePhoto": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
+    "updated": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "datetime"
+    },
+    "images": {
       "allowedTypes": [
         "images"
       ],
+      "type": "media",
+      "multiple": true,
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       }
     }
