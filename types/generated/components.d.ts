@@ -8,9 +8,9 @@ export interface ParagraphContentParagraphContent extends Schema.Component {
   };
   attributes: {
     Image: Attribute.Media<'images'>;
-    Content: Attribute.Text & Attribute.Required;
+    Content: Attribute.Text;
     Pdf: Attribute.Media<'files'>;
-    Heading: Attribute.String & Attribute.Required;
+    Heading: Attribute.String;
     Date: Attribute.Date;
     Link: Attribute.String;
   };
