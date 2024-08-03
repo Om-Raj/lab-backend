@@ -29,6 +29,12 @@
     "Heading": {
       "type": "string",
       "required": true
+    },
+    "Date": {
+      "type": "date"
+    },
+    "Link": {
+      "type": "string"
     }
   }
 }
