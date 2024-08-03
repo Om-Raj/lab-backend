@@ -11,6 +11,8 @@ export interface ParagraphContentParagraphContent extends Schema.Component {
     Content: Attribute.Text & Attribute.Required;
     Pdf: Attribute.Media<'files'>;
     Heading: Attribute.String & Attribute.Required;
+    Date: Attribute.Date;
+    Link: Attribute.String;
   };
 }
 
