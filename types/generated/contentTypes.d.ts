@@ -793,7 +793,7 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
   info: {
     singularName: 'achievement';
     pluralName: 'achievements';
-    displayName: 'Achievement';
+    displayName: 'Achievement-Journal';
     description: '';
   };
   options: {
@@ -828,6 +828,24 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
         };
       }>;
     Thumbnail: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Link: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Date: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Pdf: Attribute.Media<'files'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;

@@ -16,7 +16,7 @@
     },
     "Content": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "Pdf": {
       "type": "media",
@@ -28,7 +28,7 @@
     },
     "Heading": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "Date": {
       "type": "date"
