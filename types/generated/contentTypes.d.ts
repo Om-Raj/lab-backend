@@ -886,10 +886,32 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.String & Attribute.Required & Attribute.Unique;
-    description: Attribute.Text;
-    cover_image: Attribute.Media<'images'>;
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cover_image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     HOD: Attribute.Relation<
       'api::department.department',
       'oneToOne',
@@ -900,7 +922,14 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'oneToMany',
       'api::member.member'
     >;
-    department_id: Attribute.String & Attribute.Required & Attribute.Unique;
+    department_id: Attribute.String &
+      Attribute.Required &
+      Attribute.Unique &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Attribute.UID<'api::department.department', 'title'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -917,6 +946,90 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::department.department',
+      'oneToMany',
+      'api::department.department'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiFundingFunding extends Schema.CollectionType {
+  collectionName: 'fundings';
+  info: {
+    singularName: 'funding';
+    pluralName: 'fundings';
+    displayName: 'Funding';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    amount: Attribute.BigInteger &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    media: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    agency: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    date_of_funding: Attribute.Date &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::funding.funding',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::funding.funding',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::funding.funding',
+      'oneToMany',
+      'api::funding.funding'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1034,6 +1147,11 @@ export interface ApiMemberMember extends Schema.CollectionType {
           localized: false;
         };
       }>;
+    department: Attribute.Relation<
+      'api::member.member',
+      'oneToOne',
+      'api::department.department'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1273,6 +1391,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::achievement.achievement': ApiAchievementAchievement;
       'api::department.department': ApiDepartmentDepartment;
+      'api::funding.funding': ApiFundingFunding;
       'api::info.info': ApiInfoInfo;
       'api::member.member': ApiMemberMember;
       'api::new.new': ApiNewNew;

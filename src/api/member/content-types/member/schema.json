@@ -53,6 +53,11 @@
           "localized": false
         }
       }
+    },
+    "department": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::department.department"
     }
   }
 }
