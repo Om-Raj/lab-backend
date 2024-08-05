@@ -1033,78 +1033,6 @@ export interface ApiFundingFunding extends Schema.CollectionType {
   };
 }
 
-export interface ApiInfoInfo extends Schema.CollectionType {
-  collectionName: 'infos';
-  info: {
-    singularName: 'info';
-    pluralName: 'infos';
-    displayName: 'Info';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    published: Attribute.Date &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updated: Attribute.Date &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    image: Attribute.Media<'images'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    files: Attribute.Media<'files', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::info.info', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::info.info', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::info.info',
-      'oneToMany',
-      'api::info.info'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiMemberMember extends Schema.CollectionType {
   collectionName: 'members';
   info: {
@@ -1129,12 +1057,6 @@ export interface ApiMemberMember extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    role: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     position: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1152,6 +1074,12 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToOne',
       'api::department.department'
     >;
+    role: Attribute.Enumeration<['Supervisor', 'Student', 'Collaborator']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1171,69 +1099,6 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'api::member.member',
       'oneToMany',
       'api::member.member'
-    >;
-    locale: Attribute.String;
-  };
-}
-
-export interface ApiNewNew extends Schema.CollectionType {
-  collectionName: 'news';
-  info: {
-    singularName: 'new';
-    pluralName: 'news';
-    displayName: 'News';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    published: Attribute.Date &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    updated: Attribute.Date &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    images: Attribute.Media<'images', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.RichText &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::new.new', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::new.new', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::new.new',
-      'oneToMany',
-      'api::new.new'
     >;
     locale: Attribute.String;
   };
@@ -1392,9 +1257,7 @@ declare module '@strapi/types' {
       'api::achievement.achievement': ApiAchievementAchievement;
       'api::department.department': ApiDepartmentDepartment;
       'api::funding.funding': ApiFundingFunding;
-      'api::info.info': ApiInfoInfo;
       'api::member.member': ApiMemberMember;
-      'api::new.new': ApiNewNew;
       'api::notice.notice': ApiNoticeNotice;
       'api::research-section.research-section': ApiResearchSectionResearchSection;
     }
