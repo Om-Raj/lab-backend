@@ -1057,12 +1057,6 @@ export interface ApiMemberMember extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    role: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     position: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1080,6 +1074,12 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToOne',
       'api::department.department'
     >;
+    role: Attribute.Enumeration<['Supervisor', 'Student', 'Collaborator']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
