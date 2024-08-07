@@ -59,9 +59,23 @@
       },
       "type": "enumeration",
       "enum": [
-        "Supervisor",
         "Student",
+        "Alumni",
         "Collaborator"
+      ]
+    },
+    "StudentCategory": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "enumeration",
+      "enum": [
+        "Ph.D",
+        "part-time Ph.D",
+        "undergraduate",
+        "masters"
       ]
     }
   }
