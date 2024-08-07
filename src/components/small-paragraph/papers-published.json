@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_small_paragraph_papers_publisheds",
+  "info": {
+    "displayName": "Papers-Published"
+  },
+  "options": {},
+  "attributes": {
+    "SmallPara": {
+      "type": "text"
+    }
+  }
+}
