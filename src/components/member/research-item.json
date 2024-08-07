@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_member_research_items",
+  "info": {
+    "displayName": "ResearchItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "research": {
+      "type": "text"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_member_project_items",
+  "info": {
+    "displayName": "ProjectItem"
+  },
+  "options": {},
+  "attributes": {
+    "project": {
+      "type": "text"
+    }
+  }
+}
