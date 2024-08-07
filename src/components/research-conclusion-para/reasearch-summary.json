@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_research_conclusion_para_reasearch_summaries",
+  "info": {
+    "displayName": "ReasearchSummary",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SummaryAim": {
+      "type": "text"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1220,6 +1220,41 @@ export interface ApiResearchSectionResearchSection
           localized: true;
         };
       }>;
+    ResearchTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Description2: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PAPERSPUBLISHED: Attribute.DynamicZone<
+      ['small-paragraph.papers-published']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Members: Attribute.DynamicZone<['small-paragraph.members']> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ResearchSummary: Attribute.DynamicZone<
+      ['research-conclusion-para.reasearch-summary']
+    > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

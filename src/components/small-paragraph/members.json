@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_small_paragraph_members",
+  "info": {
+    "displayName": "Members"
+  },
+  "options": {},
+  "attributes": {
+    "Members": {
+      "type": "string"
+    }
+  }
+}
