@@ -16,15 +16,6 @@
     }
   },
   "attributes": {
-    "Theme": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string",
-      "required": true
-    },
     "Description": {
       "pluginOptions": {
         "i18n": {
@@ -33,17 +24,6 @@
       },
       "type": "text",
       "required": true
-    },
-    "ParagraphContent": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "dynamiczone",
-      "components": [
-        "paragraph-content.paragraph-content"
-      ]
     },
     "Thumbnail": {
       "type": "media",
@@ -75,38 +55,56 @@
       },
       "type": "text"
     },
-    "PAPERSPUBLISHED": {
+    "Themes": {
+      "type": "component",
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
-      "components": [
-        "small-paragraph.papers-published"
-      ]
+      "component": "small-paragraph.theme"
     },
     "Members": {
+      "type": "component",
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
-      "components": [
-        "small-paragraph.members"
-      ]
+      "component": "small-paragraph.members"
     },
-    "ResearchSummary": {
+    "PapersPublished": {
+      "type": "component",
+      "repeatable": true,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
-      "components": [
-        "research-conclusion-para.reasearch-summary"
-      ]
+      "component": "small-paragraph.papers-published"
+    },
+    "AimAndSummary": {
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "research-conclusion-para.reasearch-summary"
+    },
+    "ReasearchContent": {
+      "displayName": "ResearchContent",
+      "type": "component",
+      "repeatable": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "reasearch-content.research-content"
     }
   }
 }

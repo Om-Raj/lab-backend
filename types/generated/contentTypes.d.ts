@@ -1191,23 +1191,8 @@ export interface ApiResearchSectionResearchSection
     };
   };
   attributes: {
-    Theme: Attribute.String &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     Description: Attribute.Text &
       Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ParagraphContent: Attribute.DynamicZone<
-      ['paragraph-content.paragraph-content']
-    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1233,22 +1218,39 @@ export interface ApiResearchSectionResearchSection
           localized: true;
         };
       }>;
-    PAPERSPUBLISHED: Attribute.DynamicZone<
-      ['small-paragraph.papers-published']
+    Themes: Attribute.Component<'small-paragraph.theme', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Members: Attribute.Component<'small-paragraph.members', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    PapersPublished: Attribute.Component<
+      'small-paragraph.papers-published',
+      true
     > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    Members: Attribute.DynamicZone<['small-paragraph.members']> &
+    AimAndSummary: Attribute.Component<
+      'research-conclusion-para.reasearch-summary',
+      true
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    ResearchSummary: Attribute.DynamicZone<
-      ['research-conclusion-para.reasearch-summary']
+    ReasearchContent: Attribute.Component<
+      'reasearch-content.research-content',
+      true
     > &
       Attribute.SetPluginOptions<{
         i18n: {
