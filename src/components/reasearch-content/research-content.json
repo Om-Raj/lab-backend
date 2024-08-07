@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_reasearch_content_research_contents",
+  "info": {
+    "displayName": "ResearchContent"
+  },
+  "options": {},
+  "attributes": {
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ReasearchContent": {
+      "type": "text"
+    },
+    "Link": {
+      "type": "string"
+    }
+  }
+}

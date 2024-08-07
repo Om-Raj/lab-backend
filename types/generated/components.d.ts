@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface SmallParagraphTheme extends Schema.Component {
+  collectionName: 'components_small_paragraph_themes';
+  info: {
+    displayName: 'Theme';
+    description: '';
+  };
+  attributes: {
+    Theme: Attribute.String;
+  };
+}
+
 export interface SmallParagraphPapersPublished extends Schema.Component {
   collectionName: 'components_small_paragraph_papers_publisheds';
   info: {
@@ -30,6 +41,18 @@ export interface ResearchConclusionParaReasearchSummary
   attributes: {
     SummaryAim: Attribute.Text;
     Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
+export interface ReasearchContentResearchContent extends Schema.Component {
+  collectionName: 'components_reasearch_content_research_contents';
+  info: {
+    displayName: 'ResearchContent';
+  };
+  attributes: {
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    ReasearchContent: Attribute.Text;
+    Link: Attribute.String;
   };
 }
 
@@ -73,9 +96,11 @@ export interface MemberProjectItem extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'small-paragraph.theme': SmallParagraphTheme;
       'small-paragraph.papers-published': SmallParagraphPapersPublished;
       'small-paragraph.members': SmallParagraphMembers;
       'research-conclusion-para.reasearch-summary': ResearchConclusionParaReasearchSummary;
+      'reasearch-content.research-content': ReasearchContentResearchContent;
       'paragraph-content.paragraph-content': ParagraphContentParagraphContent;
       'member.research-item': MemberResearchItem;
       'member.project-item': MemberProjectItem;

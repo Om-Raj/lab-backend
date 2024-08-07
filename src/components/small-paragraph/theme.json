@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_small_paragraph_themes",
+  "info": {
+    "displayName": "Theme",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Theme": {
+      "type": "string"
+    }
+  }
+}
