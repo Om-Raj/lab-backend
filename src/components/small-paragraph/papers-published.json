@@ -1,12 +1,24 @@
 {
   "collectionName": "components_small_paragraph_papers_publisheds",
   "info": {
-    "displayName": "Papers-Published"
+    "displayName": "Papers-Published",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "SmallPara": {
-      "type": "text"
+    "title": {
+      "type": "string"
+    },
+    "authors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::member.member"
+    },
+    "publishedIn": {
+      "type": "string"
+    },
+    "publishedYear": {
+      "type": "date"
     }
   }
 }

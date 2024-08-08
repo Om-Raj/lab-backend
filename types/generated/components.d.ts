@@ -15,9 +15,17 @@ export interface SmallParagraphPapersPublished extends Schema.Component {
   collectionName: 'components_small_paragraph_papers_publisheds';
   info: {
     displayName: 'Papers-Published';
+    description: '';
   };
   attributes: {
-    SmallPara: Attribute.Text;
+    title: Attribute.String;
+    authors: Attribute.Relation<
+      'small-paragraph.papers-published',
+      'oneToMany',
+      'api::member.member'
+    >;
+    publishedIn: Attribute.String;
+    publishedYear: Attribute.Date;
   };
 }
 
