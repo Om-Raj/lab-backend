@@ -47,7 +47,7 @@
       "type": "string",
       "required": true
     },
-    "Description2": {
+    "ResearchSubTitle": {
       "pluginOptions": {
         "i18n": {
           "localized": true

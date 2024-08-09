@@ -1212,7 +1212,7 @@ export interface ApiResearchSectionResearchSection
           localized: true;
         };
       }>;
-    Description2: Attribute.Text &
+    ResearchSubTitle: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
