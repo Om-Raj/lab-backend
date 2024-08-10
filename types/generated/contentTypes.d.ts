@@ -1149,15 +1149,25 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToOne',
       'api::department.department'
     >;
-    role: Attribute.Enumeration<['Student', 'Alumni', 'Collaborator']> &
+    role: Attribute.Enumeration<['Alumni', 'Collaborator']> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    StudentCategory: Attribute.Enumeration<
-      ['Ph.D', 'part-time Ph.D', 'undergraduate', 'masters']
-    > &
+    about: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    researchList: Attribute.Component<'member.research-item', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    projectList: Attribute.Component<'member.project-item', true> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1374,7 +1384,7 @@ export interface ApiResearchSectionResearchSection
           localized: true;
         };
       }>;
-    Description2: Attribute.Text &
+    ResearchSubTitle: Attribute.Text &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
