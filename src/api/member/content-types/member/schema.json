@@ -61,7 +61,8 @@
       "enum": [
         "Student",
         "Alumni",
-        "Collaborator"
+        "Collaborator",
+        "Passed Out Student"
       ]
     },
     "StudentCategory": {

@@ -1074,7 +1074,9 @@ export interface ApiMemberMember extends Schema.CollectionType {
       'oneToOne',
       'api::department.department'
     >;
-    role: Attribute.Enumeration<['Student', 'Alumni', 'Collaborator']> &
+    role: Attribute.Enumeration<
+      ['Student', 'Alumni', 'Collaborator', 'Passed Out Student']
+    > &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
