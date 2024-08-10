@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_gallery_gallery_components",
+  "info": {
+    "displayName": "GalleryComponent",
+    "icon": "landscape"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}

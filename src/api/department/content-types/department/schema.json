@@ -70,6 +70,12 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "patent": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::patent.patent",
+      "mappedBy": "department"
     }
   }
 }
