@@ -851,6 +851,11 @@ export interface ApiAchievementAchievement extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    author: Attribute.Relation<
+      'api::achievement.achievement',
+      'oneToOne',
+      'api::member.member'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -931,6 +936,11 @@ export interface ApiDepartmentDepartment extends Schema.CollectionType {
         };
       }>;
     slug: Attribute.UID<'api::department.department', 'title'>;
+    patent: Attribute.Relation<
+      'api::department.department',
+      'oneToOne',
+      'api::patent.patent'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1028,6 +1038,71 @@ export interface ApiFundingFunding extends Schema.CollectionType {
       'api::funding.funding',
       'oneToMany',
       'api::funding.funding'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiGalleryGallery extends Schema.CollectionType {
+  collectionName: 'galleries';
+  info: {
+    singularName: 'gallery';
+    pluralName: 'galleries';
+    displayName: 'Gallery';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    images: Attribute.Component<'gallery.gallery-component', true> &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    name: Attribute.String &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    cover_image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::gallery.gallery',
+      'oneToMany',
+      'api::gallery.gallery'
     >;
     locale: Attribute.String;
   };
@@ -1178,6 +1253,93 @@ export interface ApiNoticeNotice extends Schema.CollectionType {
       'api::notice.notice',
       'oneToMany',
       'api::notice.notice'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiPatentPatent extends Schema.CollectionType {
+  collectionName: 'patents';
+  info: {
+    singularName: 'patent';
+    pluralName: 'patents';
+    displayName: 'Patent';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    description: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    docs: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    head: Attribute.Relation<
+      'api::patent.patent',
+      'oneToOne',
+      'api::member.member'
+    >;
+    collaborators: Attribute.Relation<
+      'api::patent.patent',
+      'manyToMany',
+      'api::student.student'
+    >;
+    cover_image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    date_of_publication: Attribute.Date &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    department: Attribute.Relation<
+      'api::patent.patent',
+      'oneToOne',
+      'api::department.department'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::patent.patent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::patent.patent',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::patent.patent',
+      'oneToMany',
+      'api::patent.patent'
     >;
     locale: Attribute.String;
   };
@@ -1358,6 +1520,11 @@ export interface ApiStudentStudent extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    patents: Attribute.Relation<
+      'api::student.student',
+      'manyToMany',
+      'api::patent.patent'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1403,8 +1570,10 @@ declare module '@strapi/types' {
       'api::achievement.achievement': ApiAchievementAchievement;
       'api::department.department': ApiDepartmentDepartment;
       'api::funding.funding': ApiFundingFunding;
+      'api::gallery.gallery': ApiGalleryGallery;
       'api::member.member': ApiMemberMember;
       'api::notice.notice': ApiNoticeNotice;
+      'api::patent.patent': ApiPatentPatent;
       'api::research-section.research-section': ApiResearchSectionResearchSection;
       'api::student.student': ApiStudentStudent;
     }

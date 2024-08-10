@@ -101,6 +101,19 @@ export interface MemberProjectItem extends Schema.Component {
   };
 }
 
+export interface GalleryGalleryComponent extends Schema.Component {
+  collectionName: 'components_gallery_gallery_components';
+  info: {
+    displayName: 'GalleryComponent';
+    icon: 'landscape';
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    media: Attribute.Media<'images' | 'videos'> & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -112,6 +125,7 @@ declare module '@strapi/types' {
       'paragraph-content.paragraph-content': ParagraphContentParagraphContent;
       'member.research-item': MemberResearchItem;
       'member.project-item': MemberProjectItem;
+      'gallery.gallery-component': GalleryGalleryComponent;
     }
   }
 }

@@ -98,6 +98,12 @@
           "localized": true
         }
       }
+    },
+    "patents": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::patent.patent",
+      "mappedBy": "collaborators"
     }
   }
 }
