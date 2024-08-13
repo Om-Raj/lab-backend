@@ -1049,6 +1049,7 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
     singularName: 'gallery';
     pluralName: 'galleries';
     displayName: 'Gallery';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1084,6 +1085,19 @@ export interface ApiGalleryGallery extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    year: Attribute.Integer &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Attribute.SetMinMax<
+        {
+          min: 1960;
+          max: 2030;
+        },
+        number
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "gallery",
     "pluralName": "galleries",
-    "displayName": "Gallery"
+    "displayName": "Gallery",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -43,16 +44,27 @@
       "type": "text"
     },
     "cover_image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
       ],
-      "type": "media",
-      "multiple": false,
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
+    },
+    "year": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "integer",
+      "max": 2030,
+      "min": 1960
     }
   }
 }
